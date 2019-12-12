@@ -98,7 +98,7 @@ namespace ProductOffer
                     {
                         currentBuy[v] = i;
                         UpdateProductsQuantity(combosList[v], i, productsList);
-                        if (CalBuyPriceChatNhanh(combosList, currentBuy) < bestBuyPrice)
+                        if (CalBuyPriceOnlyCombos(combosList, currentBuy) < bestBuyPrice)
                             TryBuy(v + 1, productsList, combosList, maxCanBuy, currentBuy, bestBuy, ref bestBuyPrice);
                         UpdateProductsQuantity(combosList[v], -i, productsList);
                     }
@@ -124,7 +124,7 @@ namespace ProductOffer
             return true;
         }
 
-        private static int CalBuyPriceChatNhanh(List<Combo> combosList, int[] currentBuy)
+        private static int CalBuyPriceOnlyCombos(List<Combo> combosList, int[] currentBuy)
         {
             int result = 0;
             for (int i = 0; i < combosList.Count; i++)
